@@ -81,9 +81,13 @@ namespace PharmacyAutomation_UI
                         MessageBox.Show("Şifre boş bırakılamaz");
                         return;
                     }
-                    this.DialogResult = DialogResult.OK;
-                    accRep.Add(acc);
-                    this.Close();
+                    DialogResult res = MessageBox.Show("Eklemek istediğinize emin misiniz?", "Yeni Personel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        accRep.Add(acc);
+                        this.Close();
+                    }
                 }
                 else if (id == 1)
                 {
@@ -116,9 +120,13 @@ namespace PharmacyAutomation_UI
                     {
                         account.Password = HashPassword(txtPassword.Text);
                     }
-                    this.DialogResult = DialogResult.OK;
-                    accRep.Update(account);
-                    this.Close();
+                    DialogResult res = MessageBox.Show("Güncellemek istediğinize emin misiniz?", "Güncelleme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        accRep.Update(account);
+                        this.Close();
+                    }
                 }
 
             }

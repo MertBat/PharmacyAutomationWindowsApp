@@ -24,6 +24,7 @@ namespace PharmacyAutomation_UI
         BasketDetail basketDetail;
         public Description(BasketDetail _basketDetail)
         {
+
             basketDetail = _basketDetail;
             InitializeComponent();
         }
@@ -46,6 +47,7 @@ namespace PharmacyAutomation_UI
         private void btnComeBack_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -67,12 +69,18 @@ namespace PharmacyAutomation_UI
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+
             }
             else
             {
                 MessageBox.Show("Açlık ve Zaman olarak işaretlemeniz Gerekiyor");
+
             }
+
+
         }
+
+
 
         private void PullTheDescription()
         {
@@ -87,6 +95,7 @@ namespace PharmacyAutomation_UI
                     {
                         checkBox.Checked = true;
                     }
+
                 }
                 else if (item is RadioButton)
                 {
@@ -98,6 +107,7 @@ namespace PharmacyAutomation_UI
                     }
                 }
             }
+
         }
 
         private void FillInDescription()
@@ -117,11 +127,14 @@ namespace PharmacyAutomation_UI
             {
 
                 basketDetail.ManualDescription += $"{rbHungry.Tag.ToString()}";
+
             }
             else
             {
                 basketDetail.ManualDescription += $"{rbFull.Tag.ToString()}";
+
             }
+
         }
     }
 }

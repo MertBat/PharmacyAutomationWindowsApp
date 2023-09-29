@@ -178,12 +178,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(351, 485);
             Controls.Add(grpButtons);
             Controls.Add(grpInformations);
             Controls.Add(grpSuppliersCompanies);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AddSupplierCompany";
-            Text = "AddSupplierCompany";
+            Text = "Tedarikçi Ekleme";
             Load += AddSupplierCompany_Load;
             grpSuppliersCompanies.ResumeLayout(false);
             grpInformations.ResumeLayout(false);

@@ -116,7 +116,9 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(lwLogs);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "EmployeeLogsForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "EmployeeLogsForm";
             Load += EmployeeLogsForm_Load;
             ResumeLayout(false);

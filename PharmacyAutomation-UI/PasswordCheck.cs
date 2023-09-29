@@ -30,6 +30,7 @@ namespace PharmacyAutomation_UI
         {
             if (Password == HashPassword(txtPassword.Text))
             {
+                MessageBox.Show("Şifre Başarı ile değiştirildi");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

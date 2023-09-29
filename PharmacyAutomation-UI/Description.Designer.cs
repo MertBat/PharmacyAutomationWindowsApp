@@ -98,7 +98,7 @@
             // 
             btnSave.Location = new Point(72, 157);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(120, 40);
+            btnSave.Size = new Size(91, 40);
             btnSave.TabIndex = 3;
             btnSave.Text = "KAYDET";
             btnSave.UseVisualStyleBackColor = true;
@@ -106,9 +106,9 @@
             // 
             // btnComeBack
             // 
-            btnComeBack.Location = new Point(210, 157);
+            btnComeBack.Location = new Point(244, 157);
             btnComeBack.Name = "btnComeBack";
-            btnComeBack.Size = new Size(120, 40);
+            btnComeBack.Size = new Size(86, 40);
             btnComeBack.TabIndex = 4;
             btnComeBack.Text = "GERİ DÖN";
             btnComeBack.UseVisualStyleBackColor = true;
@@ -118,6 +118,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(391, 238);
             Controls.Add(chkAfternoon);
             Controls.Add(btnComeBack);
@@ -126,7 +127,9 @@
             Controls.Add(chkMorning);
             Controls.Add(rbHungry);
             Controls.Add(chkEvening);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Description";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Description";
             Load += Description_Load;
             ResumeLayout(false);

@@ -37,8 +37,8 @@ namespace PharmacyAutomation_UI
 
             lblMonthlyIncome.Text = basketDetailRepository.GetMonthlyIncome();
 
-            lblDailyProfit.Text = basketDetailRepository.GetDailyProfit();
-            lblMonthlyProfit.Text = basketDetailRepository.GetMonthlyProfit();
+            lblDailyProfit.Text = basketDetailRepository.GetDailyProfit(dtpDate.Value);
+            lblMonthlyProfit.Text = basketDetailRepository.GetMonthlyProfit(dtpDate.Value);
 
 
 
@@ -62,7 +62,7 @@ namespace PharmacyAutomation_UI
                         MedicineID = b.MedicineId,
                         MedicineName = m.Name,
                         Quantity = b.Quantity,
-                        TotalIncome = b.TotalPrice,
+                        TotalIncome = b.Quantity * m.SalePrice,
                         PurchasedDate = b.PurshasedDate
                     })
                     .Where(a => a.PurchasedDate.Day == dtpDate.Value.Day && a.PurchasedDate.Month == dtpDate.Value.Month && a.PurchasedDate.Year == dtpDate.Value.Year).ToList();
@@ -98,7 +98,7 @@ namespace PharmacyAutomation_UI
                         MedicineID = b.MedicineId,
                         MedicineName = m.Name,
                         Quantity = b.Quantity,
-                        TotalIncome = b.TotalPrice,
+                        TotalIncome = b.Quantity * m.SalePrice,
                         PurchasedDate = b.PurshasedDate
                     }).Where(a => a.PurchasedDate.Month == dtpDate.Value.Month && a.PurchasedDate.Year == dtpDate.Value.Year).ToList();
 
@@ -128,7 +128,7 @@ namespace PharmacyAutomation_UI
                                 MedicineID = bd.MedicineId,
                                 MedicineName = m.Name,
                                 Quantity = bd.Quantity,
-                                TotalIncome = bd.BuyTotalPrice,
+                                TotalIncome = bd.Quantity * m.SalePrice,
                                 PurchasedDate = bd.PurshasedDate
                             }).ToList();
 
@@ -160,7 +160,7 @@ namespace PharmacyAutomation_UI
                                 MedicineID = bd.MedicineId,
                                 MedicineName = m.Name,
                                 Quantity = bd.Quantity,
-                                TotalIncome = bd.BuyTotalPrice,
+                                TotalIncome = bd.Quantity * m.SalePrice,
                                 PurchasedDate = bd.PurshasedDate
                             }).ToList();
 

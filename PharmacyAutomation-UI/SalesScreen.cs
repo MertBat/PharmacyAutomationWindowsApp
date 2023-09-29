@@ -21,11 +21,6 @@ namespace PharmacyAutomation_UI
     {
         Employee employee;
 
-        public SalesScreen()
-        {
-
-            InitializeComponent();
-        }
         public SalesScreen(Employee _employee)
         {
             employee = _employee;
@@ -36,9 +31,11 @@ namespace PharmacyAutomation_UI
         BasketDetailRepository basketDetailRepo;
         BasketRepositories basketRepo;
         PatientRepostitory patientRepo;
+        EmployeeLogRepository employeeLogRepo;
         BasketDetail basketDetail;
         List<Medicine> listMedicine;
         List<BasketDetail> listBasketDetail;
+        EmployeeLog employeeLog;
         private void SalesScreen_Load(object sender, EventArgs e)
         {
             basketDetailRepo = new BasketDetailRepository();
@@ -47,13 +44,12 @@ namespace PharmacyAutomation_UI
             patientRepo = new PatientRepostitory();
             listMedicine = new List<Medicine>();
             listBasketDetail = new List<BasketDetail>();
+            employeeLogRepo = new EmployeeLogRepository();
+            employeeLog = new EmployeeLog();
+            employeeLog.EnterTime = DateTime.Now;
 
             OpenClose(true, false);
-
             ButtonOpenClose(false);
-
-
-
             ListFillİn(listMedicine, lstSalesMedicine);
             ListFillİn(medicineRepo.GetAllWithoutPrescription(), lstWithoutReceipt);
 
@@ -247,6 +243,7 @@ namespace PharmacyAutomation_UI
         }
 
         bool isThere;
+        Basket basket;
         private void FillAndRemove(Medicine medicine, Control control)
         {
             isThere = false;
@@ -266,7 +263,6 @@ namespace PharmacyAutomation_UI
 
                     medicine.StockCount -= (int)nudQuantity.Value;
                     basketDetail.TotalPrice += (medicine.SalePrice * nudQuantity.Value);
-                    //basketDetail.BuyTotalPrice += medicine.BuyPrice * nudQuantity.Value; 
                     basketDetail.Quantity += (int)nudQuantity.Value;
                     totalPrice += medicine.SalePrice * nudQuantity.Value;
                     lblTotalPrice.Text = totalPrice.ToString() + "₺";
@@ -287,13 +283,16 @@ namespace PharmacyAutomation_UI
                     totalPrice += medicine.SalePrice * nudQuantity.Value;
                     lblTotalPrice.Text = totalPrice.ToString() + "₺";
 
+                    basket = new Basket();
+                    basket.EmployeeId = employee.EmployeeId;
+                    basketRepo.Add(basket);
                     basketDetail = new BasketDetail();
                     basketDetail.Quantity = 0;
                     basketDetail.PurshasedDate = DateTime.Now;
                     basketDetail.MedicineId = medicine.MedicineId;
-                    basketDetail.BasketId = 1;
+                    basketDetail.BasketId = basket.BasketID;
                     basketDetail.Quantity += (int)nudQuantity.Value;
-                    basketDetail.TotalPrice = medicine.SalePrice * nudQuantity.Value;
+                    //basketDetail.TotalPrice = medicine.SalePrice * nudQuantity.Value;
                     lvi.SubItems.Add(basketDetail.Quantity.ToString());
                     lstSalesMedicine.Items.Add(lvi);
                     listBasketDetail.Add(basketDetail);
@@ -419,15 +418,17 @@ namespace PharmacyAutomation_UI
                 list.SubItems.Add(medicineData.count.ToString());
                 list.Tag = item;
 
+                basket = new Basket();
+                basket.EmployeeId = employee.EmployeeId;
+                basketRepo.Add(basket);
                 basketDetail = new BasketDetail();
                 basketDetail.Quantity = 0;
                 basketDetail.PurshasedDate = DateTime.Now;
                 basketDetail.MedicineId = item.MedicineId;
-                basketDetail.BasketId = 1;
+                basketDetail.BasketId = basket.BasketID;
                 basketDetail.Quantity = medicineData.count;
-                basketDetail.TotalPrice = medicine.Coverage ? medicine.SalePrice * medicineData.count : 0;
+                basketDetail.TotalPrice = medicine.Coverage ? 0 : medicine.SalePrice * medicineData.count;
                 lstSalesMedicine.Items.Add(list);
-
 
                 listBasketDetail.Add(basketDetail);
 
@@ -505,6 +506,9 @@ namespace PharmacyAutomation_UI
             }
         }
 
+
+
+
         private void btnRemoveReceipt_Click(object sender, EventArgs e)
         {
 
@@ -529,6 +533,22 @@ namespace PharmacyAutomation_UI
 
         private void btnStockInReceipt_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (employee.AccountId == 1)
+            {
+                this.Close();
+            }
+            else
+            {
+                employeeLog.ExitTime = DateTime.Now;
+                employeeLog.EmployeeId = employee.EmployeeId;
+                employeeLogRepo.Add(employeeLog);
+                this.Close();
+            }
 
         }
     }

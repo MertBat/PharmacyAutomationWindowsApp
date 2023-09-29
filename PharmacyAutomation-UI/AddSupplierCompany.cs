@@ -27,7 +27,7 @@ namespace PharmacyAutomation_UI
             supplierRepository = new SupplierRepository();
             FillTheCompanies(supplierRepository.GetAll());
 
-            
+
 
 
         }

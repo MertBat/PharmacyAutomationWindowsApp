@@ -164,9 +164,6 @@ namespace PharmacyAutomation_DAL.Migrations
                     b.Property<int>("BasketId")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("BuyTotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("ManualDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -274,6 +271,140 @@ namespace PharmacyAutomation_DAL.Migrations
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Medicines");
+
+                    b.HasData(
+                        new
+                        {
+                            MedicineId = 1,
+                            BuyPrice = 10.50m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Dolerex",
+                            ReceiptType = 0,
+                            SalePrice = 12.25m,
+                            StockCount = 25,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            MedicineId = 2,
+                            BuyPrice = 5.75m,
+                            Coverage = false,
+                            ExpireDate = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Paracetamol",
+                            ReceiptType = 0,
+                            SalePrice = 7.00m,
+                            StockCount = 50,
+                            SupplierId = 2
+                        },
+                        new
+                        {
+                            MedicineId = 3,
+                            BuyPrice = 8.25m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Ibuprofen",
+                            ReceiptType = 1,
+                            SalePrice = 10.00m,
+                            StockCount = 30,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            MedicineId = 4,
+                            BuyPrice = 12.00m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Ciprofloxacin",
+                            ReceiptType = 2,
+                            SalePrice = 15.50m,
+                            StockCount = 20,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            MedicineId = 5,
+                            BuyPrice = 6.00m,
+                            Coverage = false,
+                            ExpireDate = new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Aspirin",
+                            ReceiptType = 4,
+                            SalePrice = 8.00m,
+                            StockCount = 40,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            MedicineId = 6,
+                            BuyPrice = 4.50m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2024, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Parol",
+                            ReceiptType = 0,
+                            SalePrice = 5.75m,
+                            StockCount = 60,
+                            SupplierId = 2
+                        },
+                        new
+                        {
+                            MedicineId = 7,
+                            BuyPrice = 15.00m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Ventolin",
+                            ReceiptType = 1,
+                            SalePrice = 18.00m,
+                            StockCount = 15,
+                            SupplierId = 2
+                        },
+                        new
+                        {
+                            MedicineId = 8,
+                            BuyPrice = 7.25m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Amoklavin",
+                            ReceiptType = 4,
+                            SalePrice = 9.50m,
+                            StockCount = 35,
+                            SupplierId = 2
+                        },
+                        new
+                        {
+                            MedicineId = 9,
+                            BuyPrice = 6.75m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2024, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Nurofen",
+                            ReceiptType = 0,
+                            SalePrice = 8.25m,
+                            StockCount = 48,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            MedicineId = 10,
+                            BuyPrice = 9.75m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Cipro",
+                            ReceiptType = 1,
+                            SalePrice = 11.00m,
+                            StockCount = 22,
+                            SupplierId = 1
+                        },
+                        new
+                        {
+                            MedicineId = 11,
+                            BuyPrice = 11.25m,
+                            Coverage = true,
+                            ExpireDate = new DateTime(2023, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Voltaren",
+                            ReceiptType = 2,
+                            SalePrice = 13.75m,
+                            StockCount = 30,
+                            SupplierId = 1
+                        });
                 });
 
             modelBuilder.Entity("PharmacyAutomation_DATA.Entity.Supplier", b =>
@@ -295,6 +426,20 @@ namespace PharmacyAutomation_DAL.Migrations
                     b.HasKey("SupplierId");
 
                     b.ToTable("Suppliers");
+
+                    b.HasData(
+                        new
+                        {
+                            SupplierId = 1,
+                            Adress = "İstanbul",
+                            Name = "Eczacıbaşı"
+                        },
+                        new
+                        {
+                            SupplierId = 2,
+                            Adress = "Ankara",
+                            Name = "Sekçuk Ecza Deposu"
+                        });
                 });
 
             modelBuilder.Entity("PharmacyAutomation_DATA.Entities.EmployeeLog", b =>

@@ -14,7 +14,6 @@ namespace PharmacyAutomation_DATA.Entity
         public decimal SGKDiscount { get; set; } = 0.95m;
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
-        public decimal? BuyTotalPrice { get; set; }
 
         public int MedicineId { get; set; }
         public Medicine Medicine { get; set; }

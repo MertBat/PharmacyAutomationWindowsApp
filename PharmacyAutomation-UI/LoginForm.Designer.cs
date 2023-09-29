@@ -37,9 +37,11 @@
             label1 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbpass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -145,24 +147,44 @@
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.exit;
+            pictureBox2.Location = new Point(439, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(36, 30);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            pictureBox2.MouseDown += pictureBox2_MouseDown;
+            pictureBox2.MouseLeave += pictureBox2_MouseLeave;
+            pictureBox2.MouseUp += pictureBox2_MouseUp;
+            // 
             // LoginForm
             // 
+            AcceptButton = loginButton;
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(487, 756);
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(groupBox1);
             Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = SystemColors.ControlText;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(5, 4, 5, 4);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbpass).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,5 +200,6 @@
         private Label label3;
         private PictureBox pictureBox1;
         private PictureBox pbpass;
+        private PictureBox pictureBox2;
     }
 }

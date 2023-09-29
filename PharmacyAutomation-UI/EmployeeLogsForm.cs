@@ -28,17 +28,16 @@ namespace PharmacyAutomation_UI
             EmployeeLogRepository empLogRep = new EmployeeLogRepository();
             List<EmployeeLog> logs = empLogRep.GetByEmoloyeeId(id);
             UpdateList(logs);
+
             //TotalMonth
             double totoalWorkingInMonth = logs.Where(l => l.EnterTime.Month == DateTime.Now.Month).Sum(l => (l.ExitTime - l.EnterTime).TotalHours);
-            lblMouth.Text = Convert.ToString(totoalWorkingInMonth);
-            //TotalWeek
-            double totalHoursThisWeek = logs
-    .Where(l => l.EnterTime.Year == DateTime.Now.Year &&
-                CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(l.EnterTime, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday) ==
-                CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(DateTime.Now, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday))
-    .Sum(l => (double)(l.ExitTime - l.EnterTime).TotalHours);
+            lblMouth.Text = Convert.ToString(Math.Round(totoalWorkingInMonth, 2)) + " saat";
 
-            lblweek.Text = totalHoursThisWeek.ToString();
+            //TotalWeek
+            double totalHoursThisWeek = logs.Where(l => l.EnterTime.Year == DateTime.Now.Year &&
+              CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(l.EnterTime, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday) == CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(DateTime.Now, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday))
+            .Sum(l => (double)(l.ExitTime - l.EnterTime).TotalHours);
+            lblweek.Text = Convert.ToString(Math.Round(totalHoursThisWeek, 2)) + " saat";
         }
 
         private void UpdateList(List<EmployeeLog> logs)

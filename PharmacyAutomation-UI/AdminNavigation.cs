@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PharmacyAutomation_DATA.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace PharmacyAutomation_UI
 {
     public partial class AdminNavigation : Form
     {
-        public AdminNavigation()
+        Employee employee;
+        public AdminNavigation(Employee _employee)
         {
+            employee = _employee;
             InitializeComponent();
         }
 
@@ -25,20 +28,26 @@ namespace PharmacyAutomation_UI
         private void button1_Click(object sender, EventArgs e)
         {
             EmployeeCheck employeeCheck = new EmployeeCheck();
+            this.Hide();
             employeeCheck.ShowDialog();
+            this.Show();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             AddMedicine addMedicine = new AddMedicine();
+            this.Hide();
             addMedicine.ShowDialog();
+            this.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Reports reports = new Reports();
+            this.Hide();
             reports.ShowDialog();
+            this.Show();
         }
 
         private void AdminNavigation_Load(object sender, EventArgs e)
@@ -48,8 +57,15 @@ namespace PharmacyAutomation_UI
 
         private void AdminNavigation_FormClosed(object? sender, FormClosedEventArgs? e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SalesScreen salesScreen = new SalesScreen(employee);
+            this.Hide();
+            salesScreen.ShowDialog();
+            this.Show();
         }
     }
 }

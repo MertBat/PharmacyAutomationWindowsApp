@@ -69,6 +69,7 @@
             Controls.Add(Es);
             Controls.Add(btnCheck);
             Controls.Add(txtPassword);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "PasswordCheck";
             Text = "PasswordCheck";
             Load += PasswordCheck_Load;

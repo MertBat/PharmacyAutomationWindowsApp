@@ -200,7 +200,9 @@
             Controls.Add(txtName);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "EditEmployees";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "EditEmployees";
             Load += EditEmployees_Load;
             ResumeLayout(false);

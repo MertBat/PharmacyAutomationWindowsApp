@@ -25,6 +25,7 @@ namespace PharmacyAutomation_UI
         private void EmployeeControl_Load(object sender, EventArgs e)
         {
             btnConditionChange.Enabled = false;
+            btnLog.Enabled = false;
             UpdateDatas();
         }
 
@@ -73,10 +74,12 @@ namespace PharmacyAutomation_UI
             if (employee.AccountId == 1)
             {
                 btnConditionChange.Enabled = false;
+                btnLog.Enabled = false;
             }
             else
             {
                 btnConditionChange.Enabled = true;
+                btnLog.Enabled = true;
             }
         }
 

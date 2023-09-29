@@ -131,6 +131,7 @@
             button3.Size = new Size(364, 99);
             button3.TabIndex = 8;
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // pictureBox2
             // 
@@ -230,8 +231,10 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(5, 4, 5, 4);
             Name = "AdminNavigation";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminNavigation";
             FormClosed += AdminNavigation_FormClosed;
             Load += AdminNavigation_Load;

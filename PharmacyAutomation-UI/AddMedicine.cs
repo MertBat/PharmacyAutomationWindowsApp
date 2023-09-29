@@ -192,7 +192,7 @@ namespace PharmacyAutomation_UI
                 int id = supplierRepository.GetID(choosenSupplierName);
 
 
-                newMedicine = new Medicine() { Name = txtMedicineName.Text, StockCount = (int)nudStock.Value, ExpireDate = dtpExpireDate.Value = dtpExpireDate.Value, ReceiptType = receiptType, BuyPrice = nudBuyPrice.Value, SalePrice = nudSalePrice.Value, SupplierId = id, Coverage = rbYes.Checked? true: false };
+                newMedicine = new Medicine() { Name = txtMedicineName.Text, StockCount = (int)nudStock.Value, ExpireDate = dtpExpireDate.Value = dtpExpireDate.Value, ReceiptType = receiptType, BuyPrice = nudBuyPrice.Value, SalePrice = nudSalePrice.Value, SupplierId = id, Coverage = rbYes.Checked ? true : false };
 
                 medicineRepostitory.Add(newMedicine);
 

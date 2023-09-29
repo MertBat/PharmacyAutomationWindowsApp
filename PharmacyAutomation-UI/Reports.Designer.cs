@@ -63,9 +63,9 @@
             // 
             lvMedicineList.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             lvMedicineList.GridLines = true;
-            lvMedicineList.Location = new Point(10, 30);
+            lvMedicineList.Location = new Point(6, 22);
             lvMedicineList.Name = "lvMedicineList";
-            lvMedicineList.Size = new Size(365, 429);
+            lvMedicineList.Size = new Size(365, 470);
             lvMedicineList.TabIndex = 0;
             lvMedicineList.UseCompatibleStateImageBehavior = false;
             lvMedicineList.View = View.Details;
@@ -95,9 +95,9 @@
             // grpSoldMedicine
             // 
             grpSoldMedicine.Controls.Add(lvMedicineList);
-            grpSoldMedicine.Location = new Point(305, 12);
+            grpSoldMedicine.Location = new Point(262, 40);
             grpSoldMedicine.Name = "grpSoldMedicine";
-            grpSoldMedicine.Size = new Size(381, 465);
+            grpSoldMedicine.Size = new Size(381, 498);
             grpSoldMedicine.TabIndex = 1;
             grpSoldMedicine.TabStop = false;
             grpSoldMedicine.Text = "Satılan İlaçlar";
@@ -106,7 +106,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DarkRed;
+            label1.ForeColor = Color.Red;
             label1.Location = new Point(42, 119);
             label1.Name = "label1";
             label1.Size = new Size(99, 21);
@@ -137,7 +137,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.DarkRed;
+            label4.ForeColor = Color.Red;
             label4.Location = new Point(58, 159);
             label4.Name = "label4";
             label4.Size = new Size(83, 21);
@@ -158,7 +158,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.DarkRed;
+            label3.ForeColor = Color.Red;
             label3.Location = new Point(47, 82);
             label3.Name = "label3";
             label3.Size = new Size(94, 21);
@@ -179,7 +179,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.DarkRed;
+            label6.ForeColor = Color.Red;
             label6.Location = new Point(31, 42);
             label6.Name = "label6";
             label6.Size = new Size(110, 21);
@@ -232,7 +232,7 @@
             // 
             grpFilter.Controls.Add(rbMonthly);
             grpFilter.Controls.Add(rbDaily);
-            grpFilter.Location = new Point(57, 80);
+            grpFilter.Location = new Point(50, 120);
             grpFilter.Name = "grpFilter";
             grpFilter.Size = new Size(167, 55);
             grpFilter.TabIndex = 14;
@@ -249,7 +249,7 @@
             gbReports.Controls.Add(label3);
             gbReports.Controls.Add(lblMonthlyProfit);
             gbReports.Controls.Add(lblDailyIncome);
-            gbReports.Location = new Point(26, 247);
+            gbReports.Location = new Point(9, 300);
             gbReports.Name = "gbReports";
             gbReports.Size = new Size(247, 230);
             gbReports.TabIndex = 15;
@@ -273,7 +273,7 @@
             gbEmployees.Controls.Add(rbAllEmployees);
             gbEmployees.Controls.Add(label2);
             gbEmployees.Controls.Add(cbEmployees);
-            gbEmployees.Location = new Point(26, 141);
+            gbEmployees.Location = new Point(9, 181);
             gbEmployees.Name = "gbEmployees";
             gbEmployees.Size = new Size(247, 100);
             gbEmployees.TabIndex = 17;
@@ -282,7 +282,7 @@
             // 
             // dtpDate
             // 
-            dtpDate.Location = new Point(90, 42);
+            dtpDate.Location = new Point(31, 78);
             dtpDate.Name = "dtpDate";
             dtpDate.Size = new Size(200, 23);
             dtpDate.TabIndex = 18;
@@ -292,7 +292,7 @@
             // 
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.Image = Properties.Resources.back;
-            pictureBox5.Location = new Point(12, 12);
+            pictureBox5.Location = new Point(9, 12);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(55, 53);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -305,14 +305,16 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumSeaGreen;
-            ClientSize = new Size(698, 490);
+            ClientSize = new Size(653, 550);
             Controls.Add(pictureBox5);
             Controls.Add(dtpDate);
             Controls.Add(gbEmployees);
             Controls.Add(gbReports);
             Controls.Add(grpFilter);
             Controls.Add(grpSoldMedicine);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Reports";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Reports";
             Load += Reports_Load;
             grpSoldMedicine.ResumeLayout(false);

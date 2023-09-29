@@ -75,12 +75,14 @@
             rbWithoutReceipt = new RadioButton();
             rbReceipt = new RadioButton();
             groupBox4 = new GroupBox();
+            pictureBox5 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // lstWithoutReceipt
@@ -382,9 +384,9 @@
             lblTotalPrice.AutoSize = true;
             lblTotalPrice.Location = new Point(313, 454);
             lblTotalPrice.Name = "lblTotalPrice";
-            lblTotalPrice.Size = new Size(37, 15);
+            lblTotalPrice.Size = new Size(12, 15);
             lblTotalPrice.TabIndex = 0;
-            lblTotalPrice.Text = "100TL";
+            lblTotalPrice.Text = "-";
             // 
             // label2
             // 
@@ -451,18 +453,34 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "SATIN ALMA TİPİ";
             // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.Image = Properties.Resources.back;
+            pictureBox5.Location = new Point(12, 7);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(55, 53);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 14;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
             // SalesScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(1178, 731);
+            Controls.Add(pictureBox5);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(btnRemoveMedicine);
             Controls.Add(btnAddMedicine);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "SalesScreen";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "SalesScreen";
             Load += SalesScreen_Load;
             groupBox1.ResumeLayout(false);
@@ -475,6 +493,7 @@
             contextMenuStrip1.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -526,5 +545,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem açıklamaEkleToolStripMenuItem;
         private ToolStripMenuItem açıklamaDüzeltToolStripMenuItem;
+        private PictureBox pictureBox5;
     }
 }

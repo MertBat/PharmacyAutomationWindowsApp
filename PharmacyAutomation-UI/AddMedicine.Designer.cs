@@ -46,6 +46,8 @@
             nudSalePrice = new NumericUpDown();
             cbSupplierCompany = new ComboBox();
             grpMedicineInformation = new GroupBox();
+            rbNo = new RadioButton();
+            rbYes = new RadioButton();
             label8 = new Label();
             btnAddSupplier = new Button();
             grpMedicineList = new GroupBox();
@@ -63,8 +65,6 @@
             rbRed = new RadioButton();
             groupBox4 = new GroupBox();
             pictureBox5 = new PictureBox();
-            rbYes = new RadioButton();
-            rbNo = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudBuyPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudSalePrice).BeginInit();
@@ -253,6 +253,28 @@
             grpMedicineInformation.TabStop = false;
             grpMedicineInformation.Text = "İlaç Bilgileri";
             // 
+            // rbNo
+            // 
+            rbNo.AutoSize = true;
+            rbNo.Location = new Point(239, 248);
+            rbNo.Name = "rbNo";
+            rbNo.Size = new Size(44, 19);
+            rbNo.TabIndex = 21;
+            rbNo.Text = "Yok";
+            rbNo.UseVisualStyleBackColor = true;
+            // 
+            // rbYes
+            // 
+            rbYes.AutoSize = true;
+            rbYes.Checked = true;
+            rbYes.Location = new Point(157, 246);
+            rbYes.Name = "rbYes";
+            rbYes.Size = new Size(41, 19);
+            rbYes.TabIndex = 20;
+            rbYes.TabStop = true;
+            rbYes.Text = "Var";
+            rbYes.UseVisualStyleBackColor = true;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -426,28 +448,6 @@
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
-            // rbYes
-            // 
-            rbYes.AutoSize = true;
-            rbYes.Checked = true;
-            rbYes.Location = new Point(157, 246);
-            rbYes.Name = "rbYes";
-            rbYes.Size = new Size(41, 19);
-            rbYes.TabIndex = 20;
-            rbYes.TabStop = true;
-            rbYes.Text = "Var";
-            rbYes.UseVisualStyleBackColor = true;
-            // 
-            // rbNo
-            // 
-            rbNo.AutoSize = true;
-            rbNo.Location = new Point(239, 248);
-            rbNo.Name = "rbNo";
-            rbNo.Size = new Size(44, 19);
-            rbNo.TabIndex = 21;
-            rbNo.Text = "Yok";
-            rbNo.UseVisualStyleBackColor = true;
-            // 
             // AddMedicine
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -459,7 +459,9 @@
             Controls.Add(grpReceiptType);
             Controls.Add(grpMedicineList);
             Controls.Add(grpMedicineInformation);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "AddMedicine";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddMedicine";
             Load += AddMedicine_Load;
             ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();

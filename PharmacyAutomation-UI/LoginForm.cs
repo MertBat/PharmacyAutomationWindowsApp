@@ -43,20 +43,31 @@ namespace PharmacyAutomation_UI
             {
                 if (item.Mail == loginUserName && hashedPass == item.Password && item.IsAdmin && item.IsValid)
                 {
-
-                    AdminNavigation adminNavigation = new AdminNavigation();
-                    adminNavigation.Show();
+                    Employee employee = accountRepository.GetEmployeeByAccount(item.AccountId);
+                    AdminNavigation adminNavigation = new AdminNavigation(employee);
                     this.Hide();
+                    adminNavigation.ShowDialog();
+                    this.Show();
                     return;
                 }
 
-                else if (item.Mail == loginUserName && hashedPass == item.Password && item.IsAdmin == false && item.IsValid)
+                else if (item.Mail == loginUserName && hashedPass == item.Password && item.IsAdmin == false )
                 {
-                    Employee employee = accountRepository.GetEmployeeByAccount(item.AccountId);
-                    SalesScreen salesScreen = new SalesScreen(employee);
-                    salesScreen.Show();
-                    this.Hide();
-                    return;
+                    if (item.IsValid)
+                    {
+                        Employee employee = accountRepository.GetEmployeeByAccount(item.AccountId);
+                        SalesScreen salesScreen = new SalesScreen(employee);
+                        this.Hide();
+                        salesScreen.ShowDialog();
+                        this.Show();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kullanıcı pasif durumdadır");
+                        return;
+                    }
+                    
                 }
             }
             MessageBox.Show("Hatalı giriş");
@@ -70,6 +81,26 @@ namespace PharmacyAutomation_UI
         private void pbpass_MouseUp(object sender, MouseEventArgs e)
         {
             pass_TextBox.UseSystemPasswordChar = true;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void pictureBox2_MouseUp(object sender, MouseEventArgs e)
+        {
+            pictureBox2.BorderStyle = BorderStyle.None;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.BorderStyle = BorderStyle.None;
         }
     }
 }
